@@ -37,10 +37,13 @@ $safePrize = 0;
 // definition of variables for answers
 $letters = ["A", "B", "C", "D"];
 $number_questions = 0;
+// defition size of tables
 $tableContentWidth = 45;
+// variable for horizontal line
 $printTableBorder = function () use ($tableContentWidth): void {
     echo str_repeat("-", $tableContentWidth + 4) . "\n";
 };
+// variable for vertical line
 $printTableRow = function (string $text, int $padding = STR_PAD_RIGHT) use ($tableContentWidth): void {
     echo "| " . str_pad($text, $tableContentWidth, " ", $padding) . " |\n";
 };
@@ -66,23 +69,25 @@ do {
     }
 } while (!in_array($choice, ["1", "2"], true));
 
+// logic of choising
 switch ($choice) {
     case "1":
-        echo "Let's play!\n";
+        echo "Let's play... All or nothing... Good Luck!\n";
         break;
 
     case "2":
-        exit("Goodbye!\n");
+        exit("Why did you even start it?\n");
 
     default:
         exit("Invalid option.\n");
 }
 
-// getting a name to use in questions
+// getting a name for use in questions
 sleep(1);
 do {
     $name = trim(readline("What's your name? "));
 
+    // validation
     if ($name === "") {
         echo "Invalid input! Please enter your name.\n";
     }
@@ -92,7 +97,7 @@ sleep(1);
 // expression for asking questions
 while ($number_questions < 15) {
     if ($number_questions > 0) {
-        // menu with choice to continue or stop
+        // menu with choice: continue or stop
         $text = "Your current prize: $prize Euro.";
         $printTableBorder();
         $printTableRow($text);
