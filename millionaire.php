@@ -14,13 +14,21 @@
  * @version  1.0.1
  */
 
-// initializing the question file
-$json = file_get_contents(__DIR__ . "/questions.json");
-$data_json = json_decode($json, true);
+// initializing and validation the question file
+if (is_readable(__DIR__ . "/questions.json")) {
+    $json = file_get_contents(__DIR__ . "/questions.json");
+    $data_json = json_decode($json, true);
+} else {
+    exit("Error: questions.json is missing or cannot be read.\n");
+}
 
-// initializing the winnings amount file
-$prizes = file_get_contents(__DIR__ . "/prizes.json");
-$prizes_json = json_decode($prizes, true);
+// initializing and validation the winnings amount file
+if (is_readable(__DIR__ . "/prizes.json")) {
+    $prizes = file_get_contents(__DIR__ . "/prizes.json");
+    $prizes_json = json_decode($prizes, true);
+} else {
+    exit("Error: prizes.json is missing or cannot be read.\n");
+}
 
 // definition of variables for the prize amount
 $prize = 0;
