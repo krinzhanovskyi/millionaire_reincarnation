@@ -22,6 +22,24 @@ $number_questions = 0;
 
 sleep(1);
 echo "Welcome to Who Wants to Be a Millionaire!\n";
+
+echo "1. Start game\n";
+echo "2. Exit\n";
+
+$choice = readline("Choose an option: ");
+
+switch ($choice) {
+    case "1":
+        echo "Let's play!\n";
+        break;
+
+    case "2":
+        exit("Goodbye!\n");
+
+    default:
+        exit("Invalid option.\n");
+}
+
 sleep(1);
 $name = readline("What's your name? ");
 sleep(1);
