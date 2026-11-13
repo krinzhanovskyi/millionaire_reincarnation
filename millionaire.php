@@ -17,26 +17,32 @@
 $json = file_get_contents(__DIR__ . "/questions.json");
 $data = json_decode($json, true);
 
-$question = $data["games"][0]["questions"][0];
 $letters = ["A", "B", "C", "D"];
+$number_questions = 0;
 
 sleep(1);
 echo "Welcome to Who Wants to Be a Millionaire!\n";
 sleep(1);
-$name = readline("Whats your name? ");
-sleep(1);
-printf ("%s, Question for 50.- CHF:\n", $name);
-echo $question["question"] . "\n";
+$name = readline("What's your name? ");
 
-foreach ($question["content"] as $index => $option) {
-    echo $letters[$index] . ": " . $option . "\n";
-}
+while ($number_questions < 15) {
+    $question = $data["games"][0]["questions"][$number_questions];
 
-$answer = strtoupper(trim(readline("Deine Antwort: ")));
-$correctAnswer = $letters[$question["correct"]];
+    echo "\nQuestion " . ($number_questions + 1) . "\n";
+    echo $question["question"] . "\n";
 
-if ($answer === $correctAnswer) {
-    echo "Richtig! Du hast 50 Euro gewonnen.\n";
-} else {
-    echo "Falsch! Du hast 0 Euro gewonnen.\n";
+    foreach ($question["content"] as $index => $option) {
+        echo $letters[$index] . ": " . $option . "\n";
+    }
+
+    $answer = strtoupper(trim(readline("Your answer: ")));
+    $correctAnswer = $letters[$question["correct"]];
+
+    if ($answer === $correctAnswer) {
+        echo "Correct!\n";
+        $number_questions++;
+    } else {
+        echo "Wrong! Game over!\n";
+        break;
+    }
 }
