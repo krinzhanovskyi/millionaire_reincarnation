@@ -8,7 +8,7 @@
  * 
  * @category Application
  * @package  Phpdev
- * @author   Oleksandr Krizhanovskyi <alex.krizhanovskyi@gmail.com>
+ * @author   Oleksandr Krizhanovskyi <krizhanovskyi.alex@gmail.com>
  * @copyright 2026 Oleksandr Krizhanovskyi
  * @license  https://opensource.org/licenses/MIT MIT License
  * @version  1.0.0
@@ -28,6 +28,7 @@ echo "B: 4\n";
 echo "C: 5\n";
 echo "D: 6\n";
 
+// verification and validation of the incoming answer
 do {
     $answer = strtoupper(trim(readline("Deine Antwort (A, B, C oder D): ")));
 
