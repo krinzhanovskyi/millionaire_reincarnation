@@ -57,7 +57,13 @@ switch ($choice) {
 }
 
 sleep(1);
-$name = readline("What's your name? ");
+do {
+    $name = trim(readline("What's your name? "));
+
+    if ($name === "") {
+        echo "Invalid input! Please enter your name.\n";
+    }
+} while ($name === "");
 sleep(1);
 
 while ($number_questions < 15) {
