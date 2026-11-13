@@ -15,7 +15,7 @@
  */
 
 $json = file_get_contents(__DIR__ . "/questions.json");
-$data = json_decode($json, true);
+$data_json = json_decode($json, true);
 
 $letters = ["A", "B", "C", "D"];
 $number_questions = 0;
@@ -24,9 +24,10 @@ sleep(1);
 echo "Welcome to Who Wants to Be a Millionaire!\n";
 sleep(1);
 $name = readline("What's your name? ");
+sleep(1);
 
 while ($number_questions < 15) {
-    $question = $data["games"][0]["questions"][$number_questions];
+    $question = $data_json["games"][0]["questions"][$number_questions];
 
     echo "\nQuestion " . ($number_questions + 1) . "\n";
     echo $question["question"] . "\n";
