@@ -47,7 +47,8 @@ echo "|                1. Start game              |\n";
 echo "---------------------------------------------\n";
 echo "|                  2. Exit                  |\n";
 echo "---------------------------------------------\n";
-echo "               @reincarnation\n";
+echo "|               @reincarnation              |\n";
+echo "---------------------------------------------\n";
 
 // selecting an option 
 do {
@@ -138,7 +139,7 @@ while ($number_questions < 15) {
     if ($answer === $correctAnswer) {
         $prize = $questionPrize;
         echo "--------------------------------\n";
-        echo "            Correct!\n";
+        echo "|            Correct!          |\n";
     
         // definition checkpoint
         if ($prize === 500 or $prize === 16000) {
@@ -148,8 +149,10 @@ while ($number_questions < 15) {
 
         $number_questions++;
     } else {    /* response to an incorrect answer */
-        $prize = $safePrize; /* if a checkpoint has been reached, used the nearest one as a reward */ 
-        echo "Wrong! Game over!\n";
+        $prize = $safePrize; /* if a checkpoint has been reached, used the nearest one as a reward */
+        echo "--------------------------------\n";
+        echo "|        Wrong! Game over!     |\n";
+        echo "--------------------------------\n";
         break;
     }
 }
@@ -159,5 +162,7 @@ sleep(1);
 if ($prize === 0) {
     printf ("You won NOTHING!\n");
 } else {
-    printf ("You won %d Euro!\n",$prize);
+    echo "--------------------------------\n";
+    printf ("| You won %d Euro!             |\n",$prize);
+    echo "--------------------------------\n";
 }
