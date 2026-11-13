@@ -43,10 +43,10 @@ sleep(1);
 echo "---------------------------------------------\n";
 echo "| Welcome to Who Wants to Be a Millionaire! |\n";
 echo "---------------------------------------------\n";
-echo "              | 1. Start game |\n";
-echo "              -----------------\n";
-echo "              |    2. Exit    |\n";
-echo "              -----------------\n";
+echo "|                1. Start game              |\n";
+echo "---------------------------------------------\n";
+echo "|                  2. Exit                  |\n";
+echo "---------------------------------------------\n";
 echo "               @reincarnation\n";
 
 // selecting an option 
@@ -85,9 +85,13 @@ sleep(1);
 while ($number_questions < 15) {
     if ($number_questions > 0) {
         // the choice to continue or stop
-        printf("\nYour current prize: %d Euro.\n",$prize);
-        echo "1. Continue playing\n";
-        echo "2. Take the money\n";
+        echo "--------------------------------\n";
+        printf(" Your current prize: %d Euro. \n",$prize);
+        echo "--------------------------------\n";
+        echo "| 1. Continue playing          |\n";
+        echo "--------------------------------\n";
+        echo "| 2. Take the money            |\n";
+        echo "--------------------------------\n";
         
         // validation of input
         do {
@@ -107,6 +111,8 @@ while ($number_questions < 15) {
     $question = $data_json["questions"][$number_questions];
 
     // the question and the text that accompanies it
+    sleep(1);
+    echo "---------------------------------------------";
     echo "\nQuestion " . ($number_questions + 1) . "\n"; /* updating number of question */
     $questionPrize = $prizes_json[$number_questions + 1]; /* updating the prize value */
     printf ("%s, You are playing for $questionPrize Euro.\n",$name);
@@ -131,7 +137,8 @@ while ($number_questions < 15) {
     // receiving an answer and validation
     if ($answer === $correctAnswer) {
         $prize = $questionPrize;
-        echo "Correct! Your prize: $prize Euro.\n";
+        echo "--------------------------------\n";
+        echo "            Correct!\n";
     
         // definition checkpoint
         if ($prize === 500 or $prize === 16000) {
@@ -141,7 +148,7 @@ while ($number_questions < 15) {
 
         $number_questions++;
     } else {    /* response to an incorrect answer */
-        $prize = $safePrize;
+        $prize = $safePrize; /* if a checkpoint has been reached, used the nearest one as a reward */ 
         echo "Wrong! Game over!\n";
         break;
     }
