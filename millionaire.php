@@ -85,16 +85,25 @@ sleep(1);
 // expression for asking questions
 while ($number_questions < 15) {
     if ($number_questions > 0) {
-        // the choice to continue or stop
-        echo "--------------------------------\n";
-        printf(" Your current prize: %d Euro. \n",$prize);
-        echo "--------------------------------\n";
-        echo "| 1. Continue playing          |\n";
-        echo "--------------------------------\n";
-        echo "| 2. Take the money            |\n";
-        echo "--------------------------------\n";
-        
-        // validation of input
+        // menu with choice to continue or stop
+        $text = "Your current prize: $prize Euro.";
+        $width = 35;
+
+        if (strlen($text) < $width) {
+            $spaces = $width - strlen($text);
+        } else {
+            $spaces = 0;
+        }
+
+    echo "---------------------------------------\n";
+    echo "| " . $text . str_repeat(" ", $spaces) . " |\n";
+    echo "---------------------------------------\n";
+    echo "| 1. Continue playing                 |\n";
+    echo "---------------------------------------\n";
+    echo "| 2. Take the money                   |\n";
+    echo "---------------------------------------\n";
+
+    // validation of input
         do {
             $choice = trim(readline("Choose an option: "));
 
@@ -109,6 +118,7 @@ while ($number_questions < 15) {
             break;
         }
     }
+    
     $question = $data_json["questions"][$number_questions];
 
     // the question and the text that accompanies it
@@ -162,7 +172,16 @@ sleep(1);
 if ($prize === 0) {
     printf ("You won NOTHING!\n");
 } else {
-    echo "--------------------------------\n";
-    printf ("| You won %d Euro!             |\n",$prize);
-    echo "--------------------------------\n";
+    $text = "You won $prize Euro!";ё
+    $width = 30;
+
+    if (strlen($text) < $width) {
+    $spaces = $width - strlen($text);
+    } else {
+        $spaces = 0;
+    }
+
+    echo "----------------------------------\n";
+    echo "| " . $text . str_repeat(" ", $spaces) . " |\n";
+    echo "----------------------------------\n";
 }
