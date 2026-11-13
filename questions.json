@@ -1,158 +1,119 @@
 {
-	"games" : [
-		{
-		    "questions" : [
-		        {
-		            "question" : "In what children's game are participants chased by someone designated \"It\"?",
-		            "content" : [
-		                "Tag",
-		                "Simon Says",
-		                "Charades",
-		                "Hopscotch"
-		            ],
-		            "correct" : 0
-		        },
-		        {
-		            "question" : "On a radio, stations are changed by using what control?",
-		            "content" : [
-		                "Tuning",
-		                "Volume",
-		                "Bass",
-		                "Treble"
-		            ],
-		            "correct" : 0
-		        },
-		        {
-		            "question" : "Which material is most dense?",
-		            "content" : [
-		                "Silver",
-		                "Styrofoam",
-		                "Butter",
-		                "Gold"
-		            ],
-		            "correct" : 3
-		        },
-		        {
-		            "question" : "Which state in the United States is largest by area?",
-		            "content" : [
-		                "Alaska",
-		                "California",
-		                "Texas",
-		                "Hawaii"
-		            ],
-		            "correct" : 0
-		        },
-		        {
-		            "question" : "What is Aurora Borealis commonly known as?",
-		            "content" : [
-		                "Fairy Dust",
-		                "Northern Lights",
-		                "Book of ages",
-		                "a Game of Thrones main character"
-		            ],
-		            "correct" : 1
-		        },
-				{
-				    "correct": 3,
-				    "content": [
-				        "developed the telescope",
-				        "discovered four satellites of Jupiter",
-				        "discovered that the movement of pendulum produces a regular time measurement",
-				        "All of the above"
-				    ],
-				    "question": "Galileo was an Italian astronomer who"
-				},
-				{
-				    "correct": 3,
-				    "content": [
-				        "the infrared light kills bacteria in the body",
-				        "resistance power increases",
-				        "the pigment cells in the skin get stimulated and produce a healthy tan",
-				        "the ultraviolet rays convert skin oil into Vitamin D"
-				    ],
-				    "question": "Exposure to sunlight helps a person improve his health because"
-				},
-				{
-				    "correct": 0,
-				    "content": [
-				        "a club or a local sport association for remarkable achievements",
-				        "amateur athlete, not necessarily an Olympian",
-				        "National Olympic Committee for outstanding work",
-				        "None of the above"
-				    ],
-				    "question": "Sir Thomas Fearnley Cup is awarded to"
-				},
-				{
-				    "correct": 1,
-				    "content": [
-				        "1968",
-				        "1929",
-				        "1901",
-				        "1965"
-				    ],
-				    "question": "Oscar Awards were instituted in"
-				},
-				{
-				    "correct": 2,
-				    "content": [
-				        "1998",
-				        "1989",
-				        "1979",
-				        "1800"
-				    ],
-				    "question": "When did Margaret Thatcher became the first female Prime Minister of Britain?"
-				},
-				{
-				    "correct": 2,
-				    "content": [
-				        "15th April",
-				        "12th December",
-				        "1st May",
-				        "1st August"
-				    ],
-				    "question": "When is the International Workers' Day?"
-				},
-				{
-				    "correct": 2,
-				    "content": [
-				        "1962",
-				        "1963",
-				        "1964",
-				        "1965"
-				    ],
-				    "question": "When did China test their first atomic device?"
-				},
-				{
-				    "correct": 3,
-				    "content": [
-				        "1904",
-				        "1905",
-				        "1908",
-				        "1909"
-				    ],
-				    "question": "When did Commander Robert Peary discover the North Pole?"
-				},
-				{
-				    "correct": 0,
-				    "content": [
-				        "819/sq. km",
-				        "602/sq. km",
-				        "415/sq. km",
-				        "500/sq. km"
-				    ],
-				    "question": "What is the population density of Kerala?"
-				},
-				{
-				    "correct": 1,
-				    "content": [
-				        "4 km",
-				        "25 km",
-				        "500 m to 9 km",
-				        "150 km"
-				    ],
-				    "question": "What is the range of missile 'Akash'?"
-				}
-		    ]
-		}
-	]
+  "questions": [
+    {
+      "question": "What is Vivian Amstler's job at ZLI?",
+      "content": ["Administrator", "Coach", "Team Leader", "CEO"],
+      "correct": 0
+    },
+    {
+      "question": "How many coaches at ZLI work at BasisLehrJahr?",
+      "content": ["5", "3", "7", "4"],
+      "correct": 2
+    },
+    {
+      "question": "What does “ZLI” stand for?",
+      "content": [
+        "Ziemlich Lange Information",
+        "Zürcher Learning Institute",
+        "Zürcher Lernen Informatik",
+        "Zürcher Lehrbetriebsverband ICT"
+      ],
+      "correct": 3
+    },
+    {
+      "question": "When must you dress in business casual?",
+      "content": [
+        "Always",
+        "I don't wear business casual",
+        "Every first Wednesday of the month",
+        "Every first workday of the month"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Which programming language during this week we are learning?",
+      "content": ["PHP", "Swift", "Ruby", "Kotlin"],
+      "correct": 0
+    },
+    {
+      "question": "Which field you can at ZLI preparing to work in?",
+      "content": [
+        "Piloting",
+        "Application development",
+        "Car mechanics",
+        "Healthcare"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "In which year was ZLI founded?",
+      "content": ["1985", "1995", "2005", "2015"],
+      "correct": 1
+    },
+    {
+      "question": "Which operating system did we install on a virtual machine during our ÜKs?",
+      "content": [
+        "Fedora Workstation",
+        "Debian Desktop",
+        "Linux Mint",
+        "Ubuntu Server"
+      ],
+      "correct": 3
+    },
+    {
+      "question": "What is an IPA in ICT vocational training?",
+      "content": [
+        "An individual practical assignment",
+        "An international programming award",
+        "An internet access point",
+        "An introductory programming app"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "Which command-line language was used for this exercise?",
+      "content": ["PowerShell", "PHP", "Python", "JavaScript"],
+      "correct": 1
+    },
+    {
+      "question": "Which port was used on configure for OpenSSH Ubuntu Server?",
+      "content": ["22", "80", "8022", "443"],
+      "correct": 2
+    },
+    {
+      "question": "Which of these is a real ICT profession supported by ZLI?",
+      "content": [
+        "Professional computer scientist",
+        "Sniper",
+        "Clown",
+        "Media Specialist"
+      ],
+      "correct": 3
+    },
+    {
+      "question": "Who is Linus Torvalds?",
+      "content": [
+        "Third President of USA",
+        "Creator of the Linux kernel",
+        "Creator of the Github",
+        "Your Father"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "What does a web server do?",
+      "content": [
+        "Serves food to developers",
+        "Prints money",
+        "Delivers website content to users",
+        "Shows how to do Website"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "How many original Harry Potter books are published?",
+      "content": ["9", "6", "7", "8"],
+      "correct": 2
+    }
+  ]
 }
