@@ -37,18 +37,25 @@ $safePrize = 0;
 // definition of variables for answers
 $letters = ["A", "B", "C", "D"];
 $number_questions = 0;
+$tableContentWidth = 45;
+$printTableBorder = function () use ($tableContentWidth): void {
+    echo str_repeat("-", $tableContentWidth + 4) . "\n";
+};
+$printTableRow = function (string $text, int $padding = STR_PAD_RIGHT) use ($tableContentWidth): void {
+    echo "| " . str_pad($text, $tableContentWidth, " ", $padding) . " |\n";
+};
 
 // start menu 
 sleep(1);
-echo "---------------------------------------------\n";
-echo "| Welcome to Who Wants to Be a Millionaire! |\n";
-echo "---------------------------------------------\n";
-echo "|                1. Start game              |\n";
-echo "---------------------------------------------\n";
-echo "|                  2. Exit                  |\n";
-echo "---------------------------------------------\n";
-echo "|               @reincarnation              |\n";
-echo "---------------------------------------------\n";
+$printTableBorder();
+$printTableRow("Welcome to Who Wants to Be a Millionaire!", STR_PAD_BOTH);
+$printTableBorder();
+$printTableRow("1. Start game", STR_PAD_BOTH);
+$printTableBorder();
+$printTableRow("2. Exit", STR_PAD_BOTH);
+$printTableBorder();
+$printTableRow("@reincarnation", STR_PAD_BOTH);
+$printTableBorder();
 
 // selecting an option 
 do {
@@ -87,23 +94,15 @@ while ($number_questions < 15) {
     if ($number_questions > 0) {
         // menu with choice to continue or stop
         $text = "Your current prize: $prize Euro.";
-        $width = 35;
+        $printTableBorder();
+        $printTableRow($text);
+        $printTableBorder();
+        $printTableRow("1. Continue playing", STR_PAD_BOTH);
+        $printTableBorder();
+        $printTableRow("2. Take the money", STR_PAD_BOTH);
+        $printTableBorder();
 
-        if (strlen($text) < $width) {
-            $spaces = $width - strlen($text);
-        } else {
-            $spaces = 0;
-        }
-
-    echo "---------------------------------------\n";
-    echo "| " . $text . str_repeat(" ", $spaces) . " |\n";
-    echo "---------------------------------------\n";
-    echo "| 1. Continue playing                 |\n";
-    echo "---------------------------------------\n";
-    echo "| 2. Take the money                   |\n";
-    echo "---------------------------------------\n";
-
-    // validation of input
+        // validation of input
         do {
             $choice = trim(readline("Choose an option: "));
 
@@ -123,8 +122,8 @@ while ($number_questions < 15) {
 
     // the question and the text that accompanies it
     sleep(1);
-    echo "---------------------------------------------";
-    echo "\nQuestion " . ($number_questions + 1) . "\n"; /* updating number of question */
+    $printTableBorder();
+    echo "Question " . ($number_questions + 1) . "\n"; /* updating number of question */
     $questionPrize = $prizes_json[$number_questions + 1]; /* updating the prize value */
     printf ("%s, You are playing for $questionPrize Euro.\n",$name);
     echo $question["question"] . "\n"; /* question from json file */
@@ -148,21 +147,24 @@ while ($number_questions < 15) {
     // receiving an answer and validation
     if ($answer === $correctAnswer) {
         $prize = $questionPrize;
-        echo "--------------------------------\n";
-        echo "|            Correct!          |\n";
+        $printTableBorder();
+        $printTableRow("Correct!", STR_PAD_BOTH);
+        $printTableBorder();
     
         // definition checkpoint
         if ($prize === 500 or $prize === 16000) {
             $safePrize = $prize;
-            echo "Safety prize reached!\n";
+            $printTableBorder();
+            $printTableRow("Safety prize reached!", STR_PAD_BOTH);
+            $printTableBorder();
         }
 
         $number_questions++;
     } else {    /* response to an incorrect answer */
         $prize = $safePrize; /* if a checkpoint has been reached, used the nearest one as a reward */
-        echo "--------------------------------\n";
-        echo "|        Wrong! Game over!     |\n";
-        echo "--------------------------------\n";
+        $printTableBorder();
+        $printTableRow("Wrong! Game over!", STR_PAD_BOTH);
+        $printTableBorder();
         break;
     }
 }
@@ -170,18 +172,10 @@ while ($number_questions < 15) {
 // announcement of the Session Results
 sleep(1);
 if ($prize === 0) {
-    printf ("You won NOTHING!\n");
+    $text = "You won NOTHING!";
 } else {
-    $text = "You won $prize Euro!";ё
-    $width = 30;
-
-    if (strlen($text) < $width) {
-    $spaces = $width - strlen($text);
-    } else {
-        $spaces = 0;
-    }
-
-    echo "----------------------------------\n";
-    echo "| " . $text . str_repeat(" ", $spaces) . " |\n";
-    echo "----------------------------------\n";
+    $text = "You won $prize Euro!";
 }
+$printTableBorder();
+$printTableRow($text, STR_PAD_BOTH);
+$printTableBorder();
