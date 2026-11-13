@@ -11,35 +11,31 @@
  * @author   Oleksandr Krizhanovskyi <krizhanovskyi.alex@gmail.com>
  * @copyright 2026 Oleksandr Krizhanovskyi
  * @license  https://opensource.org/licenses/MIT MIT License
- * @version  1.0.0
+ * @version  1.0.1
  */
 
-// a function that checks whether the answer to a question is correct
-function itsRight(int $answer, int $solution): bool {
-    return $answer === $solution;
+$json = file_get_contents(__DIR__ . "/questions.json");
+$data = json_decode($json, true);
+
+$question = $data["games"][0]["questions"][0];
+$letters = ["A", "B", "C", "D"];
+
+sleep(1);
+echo "Welcome to Who Wants to Be a Millionaire!\n";
+sleep(1);
+$name = readline("Whats your name? ");
+sleep(1);
+printf ("%s, Question for 50.- CHF:\n", $name);
+echo $question["question"] . "\n";
+
+foreach ($question["content"] as $index => $option) {
+    echo $letters[$index] . ": " . $option . "\n";
 }
 
-echo "Willkommen bei Wer wird Millionaer!\n";
-$name = readline("Wie heissen Sie? ");
-printf ("%s, Frage fuer 50 Euro:\n", $name);
-echo "Wie viel ist 2 + 2?\n";
-echo "A: 3\n";
-echo "B: 4\n";
-echo "C: 5\n";
-echo "D: 6\n";
+$answer = strtoupper(trim(readline("Deine Antwort: ")));
+$correctAnswer = $letters[$question["correct"]];
 
-// verification and validation of the incoming answer
-do {
-    $answer = strtoupper(trim(readline("Deine Antwort (A, B, C oder D): ")));
-
-    $itsRight = in_array($answer, ["A", "B", "C", "D"], true);
-
-    if (!$itsRight) {
-        echo "Ungueltige Eingabe. Bitte A, B, C oder D eingeben.\n";
-    }
-} while (!$itsRight);
-
-if ($answer === "B") {
+if ($answer === $correctAnswer) {
     echo "Richtig! Du hast 50 Euro gewonnen.\n";
 } else {
     echo "Falsch! Du hast 0 Euro gewonnen.\n";
