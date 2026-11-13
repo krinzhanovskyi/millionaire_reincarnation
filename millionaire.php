@@ -20,16 +20,25 @@ function itsRight(int $answer, int $solution): bool {
 }
 
 echo "Willkommen bei Wer wird Millionaer!\n";
-echo "Frage fuer 50 Euro:\n";
+$name = readline("Wie heissen Sie? ");
+printf ("%s, Frage fuer 50 Euro:\n", $name);
 echo "Wie viel ist 2 + 2?\n";
 echo "A: 3\n";
 echo "B: 4\n";
 echo "C: 5\n";
 echo "D: 6\n";
 
-$antwort = readline("Deine Antwort (A, B, C oder D): ");
+do {
+    $answer = strtoupper(trim(readline("Deine Antwort (A, B, C oder D): ")));
 
-if ($antwort === "B") {
+    $itsRight = in_array($answer, ["A", "B", "C", "D"], true);
+
+    if (!$itsRight) {
+        echo "Ungueltige Eingabe. Bitte A, B, C oder D eingeben.\n";
+    }
+} while (!$itsRight);
+
+if ($answer === "B") {
     echo "Richtig! Du hast 50 Euro gewonnen.\n";
 } else {
     echo "Falsch! Du hast 0 Euro gewonnen.\n";
