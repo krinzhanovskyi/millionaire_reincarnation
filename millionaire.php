@@ -14,18 +14,23 @@
  * @version  1.0.1
  */
 
+// initializing the question file
 $json = file_get_contents(__DIR__ . "/questions.json");
 $data_json = json_decode($json, true);
 
+// initializing the winnings amount file
 $prizes = file_get_contents(__DIR__ . "/prizes.json");
 $prizes_json = json_decode($prizes, true);
 
+// definition of variables for the prize amount
 $prize = 0;
 $safePrize = 0;
 
+// definition of variables for answers
 $letters = ["A", "B", "C", "D"];
 $number_questions = 0;
 
+// start menu 
 sleep(1);
 echo "---------------------------------------------\n";
 echo "| Welcome to Who Wants to Be a Millionaire! |\n";
@@ -36,6 +41,7 @@ echo "              |    2. Exit    |\n";
 echo "              -----------------\n";
 echo "               @reincarnation\n";
 
+// selecting an option 
 do {
     $choice = trim(readline("Choose an option: "));
 
@@ -56,6 +62,7 @@ switch ($choice) {
         exit("Invalid option.\n");
 }
 
+// getting a name to use in questions
 sleep(1);
 do {
     $name = trim(readline("What's your name? "));
@@ -66,14 +73,38 @@ do {
 } while ($name === "");
 sleep(1);
 
+// expression for asking questions
 while ($number_questions < 15) {
-    $question = $data_json["games"][0]["questions"][$number_questions];
+    if ($number_questions > 0) {
+        // the choice to continue or stop
+        printf("\nYour current prize: %d Euro.\n",$prize);
+        echo "1. Continue playing\n";
+        echo "2. Take the money\n";
+        
+        // validation of input
+        do {
+            $choice = trim(readline("Choose an option: "));
 
-    echo "\nQuestion " . ($number_questions + 1) . "\n";
-    $questionPrize = $prizes_json[$number_questions + 1];
+            if (!in_array($choice, ["1", "2"], true)) {
+                echo "Invalid input! Please enter 1 or 2.\n";
+            }
+        } while (!in_array($choice, ["1", "2"], true));
+        
+        // choice finish the test
+        if ($choice === "2") {
+            echo "You chose to take the money!\n";
+            break;
+        }
+    }
+    $question = $data_json["questions"][$number_questions];
+
+    // the question and the text that accompanies it
+    echo "\nQuestion " . ($number_questions + 1) . "\n"; /* updating number of question */
+    $questionPrize = $prizes_json[$number_questions + 1]; /* updating the prize value */
     printf ("%s, You are playing for $questionPrize Euro.\n",$name);
-    echo $question["question"] . "\n";
+    echo $question["question"] . "\n"; /* question from json file */
 
+    // validating answer
     foreach ($question["content"] as $index => $option) {
         echo $letters[$index] . ": " . $option . "\n";
     }
@@ -89,23 +120,26 @@ while ($number_questions < 15) {
 
     sleep(1);
 
+    // receiving an answer and validation
     if ($answer === $correctAnswer) {
         $prize = $questionPrize;
         echo "Correct! Your prize: $prize Euro.\n";
-
+    
+        // definition checkpoint
         if ($prize === 500 or $prize === 16000) {
             $safePrize = $prize;
             echo "Safety prize reached!\n";
         }
 
         $number_questions++;
-    } else {
+    } else {    /* response to an incorrect answer */
         $prize = $safePrize;
         echo "Wrong! Game over!\n";
         break;
     }
 }
 
+// announcement of the Session Results
 sleep(1);
 if ($prize === 0) {
     printf ("You won NOTHING!\n");
