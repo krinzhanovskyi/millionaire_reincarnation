@@ -11,7 +11,7 @@
  * @author   Oleksandr Krizhanovskyi <krizhanovskyi.alex@gmail.com>
  * @copyright 2026 Oleksandr Krizhanovskyi
  * @license  https://opensource.org/licenses/MIT MIT License
- * @version  1.0.1
+ * @version  2.0.0
  */
 
 // initializing and validation the question file
