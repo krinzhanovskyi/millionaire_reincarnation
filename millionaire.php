@@ -21,10 +21,13 @@ $letters = ["A", "B", "C", "D"];
 $number_questions = 0;
 
 sleep(1);
-echo "Welcome to Who Wants to Be a Millionaire!\n";
-
-echo "1. Start game\n";
-echo "2. Exit\n";
+echo "---------------------------------------------\n";
+echo "| Welcome to Who Wants to Be a Millionaire! |\n";
+echo "---------------------------------------------\n";
+echo "              | 1. Start game |\n";
+echo "              -----------------\n";
+echo "              |    2. Exit    |\n";
+echo "              -----------------\n";
 
 $choice = readline("Choose an option: ");
 
